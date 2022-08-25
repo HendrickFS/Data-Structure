@@ -1,0 +1,6 @@
+char c = 'b';
+char *pc = &c;
+int i1 = 15;
+int *i1 = &i1;
+int **w = &p1;
+int ***z = &w;

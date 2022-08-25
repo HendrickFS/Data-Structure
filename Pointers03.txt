@@ -1,0 +1,18 @@
+i1     |   15   |   int   
+i2     |   22   |   int
+si     |   30   |   short int
+f      |   2.5  |   float
+c      |   b    |   char
+&i1    |   #4   |   int*
+&i2    |   #8   |   int*
+p2     |   #4   |   int*
+*p2    |   15   |   int
+&p2    |   #40  |   int**
+z      |   #64  |   int*
+*z     |   #32  |   int**
+**z    |   #8   |   int***
+***z   |   22   |   int
+&z     |   #72  |   int****
+w      |   #32  |   int**
+&w     |   #64  |   int***
+*w     |   #8   |   int**
