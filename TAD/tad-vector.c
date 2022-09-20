@@ -25,8 +25,7 @@ void vectorDestruction(Vector** adress){
     *adress = NULL;
 };
 bool vectorAnex(Vector* v, int element){
-    if (v->size == v->elements)
-        return false;
+    if (v->size == v->elements) return false;
     else{
         v->array[v->elements]=element;
         v->elements++;
@@ -63,18 +62,24 @@ void vectorToString(Vector* v, char* str){
     strcat(str,aux);
 };
 bool vectorInsert(Vector* v, int element, int pos){
-    if ((pos >= v->size)||(pos < 0))
-        return false;
-    else
-        v->array[pos]=element;
+    if ((pos >= v->size)||(pos < 0)||(v==NULL)) return false;
+    else{
+        for (int i=v->size;i>pos-1;i--)
+            v->array[i]=v->array[i-1];
+        v->array[pos-1]=element;
+        v->elements++;
+        return true;
+    }
 }; 
 bool vectorRemoveByPosition(Vector* v, int pos, int* adress){
-    if ((pos >= v->size)||(pos < 0))
-        return false;
+    if ((pos >= v->size)||(pos <= 0)||(v==NULL)) return false;
     else{
-        *adress=v->array[pos];
-        v->array[pos]=0;
+        *adress=v->array[pos-1];
+        v->array[pos-1]=0;
+        for (int i=pos-1;i<v->elements-1;i++)
+            v->array[i-1]=v->array[i+1];
     }
+    v->elements--;
     return true;
 };
 
